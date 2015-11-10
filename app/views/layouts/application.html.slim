@@ -7,4 +7,29 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   body
-    = yield
+
+  nav.navbar.navbar-default
+   	.container-fluid 
+    	.navbar-header 
+      		.navbar-brand    
+       			|Image Gallery
+      		button.navbar-toggle.collapsed aria-expanded="false" data-target="#bs-example-navbar-	collapse-1" data-toggle="collapse" type="button" 	
+  				span.sr-only Toggle navigation	
+  				span.icon-bar	
+  				span.icon-bar
+  				span.icon-bar
+  		#bs-example-navbar-collapse-1.collapse.navbar-collapse
+		  	ul.nav.navbar-nav.navbar-right
+		    	li	
+		    		= link_to "Sign Up"  
+		    	li	
+		    		= link_to "Sign In" 
+		    	li	
+		    		= link_to "My Favs"
+		    		
+		    	  	 
+		/! /.navbar-collapse
+
+
+  .container
+   	= yield

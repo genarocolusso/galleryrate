@@ -8,3 +8,4 @@ class CreatePictures < ActiveRecord::Migration
     end
   end
 end
+	

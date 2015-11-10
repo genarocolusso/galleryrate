@@ -12,4 +12,10 @@
  *
  *= require_tree .
  *= require_self
+ *= bootstrap
+ *= animate
  */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+html,body{ width: 100%; height: 100%}
