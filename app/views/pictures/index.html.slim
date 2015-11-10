@@ -3,14 +3,55 @@
     
   .imgsdivs.text-center 
     - @pictures.each do |picture|
-      .img-amazing 
-        = image_tag picture.image.url(:medium), :class => "img-responsive center-block"
-        = picture.name
-        = picture.description
-        = link_to 'Show', picture
-        = link_to 'Edit', edit_picture_path(picture)
-        = link_to 'Destroy', picture, data: {:confirm => 'Are you sure?'}, :method => :delete
+      - if  @pictures.first == picture  
+        .img-amazing.active 
+          = image_tag picture.image.url(:medium), :class => "img-responsive center-block"
+          h2 = picture.name
+          p.text-muted = picture.description
+          .commands
+            = link_to '<i class="fa fa-picture-o"></i>'.html_safe, picture
+            = link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe, edit_picture_path(picture)
+            = link_to '<i class="fa fa-trash-o"></i>'.html_safe, picture, data: {:confirm => 'Are you sure?'}, :method => :delete
+  
+      - else
+        .img-amazing
+          = image_tag picture.image.url(:medium), :class => "img-responsive center-block"
+          h2 = picture.name
+          p.text-muted = picture.description
+          .commands
+            = link_to '<i class="fa fa-picture-o"></i>'.html_safe, picture
+            = link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe, edit_picture_path(picture)
+            = link_to '<i class="fa fa-trash-o"></i>'.html_safe, picture, data: {:confirm => 'Are you sure?'}, :method => :delete
   
     br
 
-  = link_to 'New Picture', new_picture_path
+  = link_to 'New Picture', new_picture_path, :class => "btn btn-info"
+  
+  .btn.btn-warning.showprev Show Prev
+  .btn.btn-danger.shownext Show Next
+
+
+javascript:
+  $(document).ready(function(){
+  $(".shownext").click(function(){ 
+
+    if($(".img-amazing.active").next(".img-amazing").length){
+    
+    $(".img-amazing.active").removeClass("active").next('.img-amazing').addClass("active"); 
+  }
+  else { 
+  } 
+  });
+  
+  $(".showprev").click(function(){ 
+
+    if($(".img-amazing.active").prev(".img-amazing").length){
+     
+    $(".img-amazing.active").removeClass("active").prev('.img-amazing').addClass("active"); 
+  }
+  else {
+      
+  } 
+  });
+
+  });

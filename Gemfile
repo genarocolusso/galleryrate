@@ -29,7 +29,7 @@ gem "animate-rails"
 gem "wow-rails" 
 gem "font-awesome-rails"
 gem 'bootstrap-sass', '~> 3.3.5'
-gem 'sass-rails', '>= 3.2'
+gem 'sass-rails' 
 gem "paperclip", "~> 4.2.0"
 gem 'simple_form', '~> 3.0.2'
 # Use Unicorn as the app server
