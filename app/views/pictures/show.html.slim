@@ -1,12 +1,15 @@
-p#notice = notice
-
-p
-  strong Name:
-  = @picture.name
-p
-  strong Description:
-  = @picture.description
-
-= link_to 'Edit', edit_picture_path(@picture)
-'|
-= link_to 'Back', pictures_path
+.container	
+	p#notice = notice
+	
+	p
+	  strong Name:
+	  = @picture.name
+	p
+	  strong Description:
+	  = @picture.description
+	= image_tag @picture.image.url(:medium), :class => "img-responsive "
+	
+	
+	= link_to 'Edit', edit_picture_path(@picture)
+	'|
+	= link_to 'Back', pictures_path

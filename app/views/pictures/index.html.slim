@@ -1,23 +1,16 @@
-h1 Listing pictures
-
-table
-  thead
-    tr
-      th Name
-      th Description
-      th
-      th
-      th
-
-  tbody
+.container  
+  h1 Listing pictures
+    
+  .imgsdivs.text-center 
     - @pictures.each do |picture|
-      tr
-        td = picture.name
-        td = picture.description
-        td = link_to 'Show', picture
-        td = link_to 'Edit', edit_picture_path(picture)
-        td = link_to 'Destroy', picture, data: {:confirm => 'Are you sure?'}, :method => :delete
+      .img-amazing 
+        = image_tag picture.image.url(:medium), :class => "img-responsive center-block"
+        = picture.name
+        = picture.description
+        = link_to 'Show', picture
+        = link_to 'Edit', edit_picture_path(picture)
+        = link_to 'Destroy', picture, data: {:confirm => 'Are you sure?'}, :method => :delete
+  
+    br
 
-br
-
-= link_to 'New Picture', new_picture_path
+  = link_to 'New Picture', new_picture_path
