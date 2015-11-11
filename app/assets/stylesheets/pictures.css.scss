@@ -75,9 +75,7 @@
 
 
 .boxcoracao{ 
-    width: 35px;
-  display: inline-block;
-position: relative;
+   
 } 
 
 .textbtn{ display: inline-block;}
@@ -88,26 +86,25 @@ background: url("https://abs.twimg.com/a/1446542199/img/t1/web_heart_animation.p
  width: 50px;
  background-size: 2900%;
  background-position: left center; 
-   
-  top: -30px;
-  left:  0px;
+    margin-left: -26px;
   position:absolute;
-        .ativo{  
+        &.ativo{  
             background: url("https://abs.twimg.com/a/1446542199/img/t1/web_heart_animation.png");
              height: 50px;
              width: 50px;
              background-size: 2900%;
-             background-position: right center; 
-               
-              top: -30px;
-              left:  0px;
+             background-position: right center;   
               position:absolute;
               animation: none 0s !important;
     
             }
+        &.contador{
+          margin-top: -44px;
+    background-position: right center;
+        }
 }
  
-.btn:hover  .coracao{
+.boxcoracao:hover  .coracao{
 animation: animationFrames 1.4s steps(28) infinite;
 }
  
