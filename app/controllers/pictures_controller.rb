@@ -1,5 +1,5 @@
 class PicturesController < ApplicationController
-  before_action :set_picture, only: [:show, :edit, :update, :destroy]
+  before_action :set_picture, only: [:show, :edit, :upvote, :update, :destroy]
 
   # GET /pictures
   # GET /pictures.json
@@ -12,7 +12,10 @@ class PicturesController < ApplicationController
   def show
     
   end
-
+  def upvote
+    @picture.upvote_by current_user
+    redirect_to :back
+  end
   # GET /pictures/new
   def new
     @picture = Picture.new

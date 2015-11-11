@@ -1,10 +1,10 @@
 .container  
-  h1 Listing pictures
+   
     
   .imgsdivs.text-center 
     - @pictures.each do |picture|
       - if  @pictures.first == picture  
-        .img-amazing.active 
+        .Absolute-Center.img-amazing.active 
           = image_tag picture.image.url(:medium), :class => "img-responsive center-block"
           h2 = picture.name
           p.text-muted = picture.description
@@ -14,22 +14,38 @@
             = link_to '<i class="fa fa-trash-o"></i>'.html_safe, picture, data: {:confirm => 'Are you sure?'}, :method => :delete
   
       - else
-        .img-amazing
+        .Absolute-Center.img-amazing
           = image_tag picture.image.url(:medium), :class => "img-responsive center-block"
           h2 = picture.name
           p.text-muted = picture.description
+          p.text-muted = picture.user.email
           .commands
             = link_to '<i class="fa fa-picture-o"></i>'.html_safe, picture
             = link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe, edit_picture_path(picture)
             = link_to '<i class="fa fa-trash-o"></i>'.html_safe, picture, data: {:confirm => 'Are you sure?'}, :method => :delete
+
   
     br
 
-  = link_to 'New Picture', new_picture_path, :class => "btn btn-info"
-  
-  .btn.btn-warning.showprev Show Prev
-  .btn.btn-danger.shownext Show Next
-
+  .row 
+    .actionsbtn.hidden-xs  
+      = link_to 'New Picture', new_picture_path, :class => "btn btn-info"  
+      .btn.btn-warning.showprev Show Prev
+      .btn.btn-danger.shownext Show Next
+      .btn.btn-default  
+        .textbtn
+          | Like it     
+        .boxcoracao
+          span.coracao
+    .actionsbtn.visible-xs 
+      = link_to 'New Picture', new_picture_path, :class => "btn btn-block btn-info"  
+      .btn.btn-block.btn-warning.showprev Show Prev
+      .btn.btn-block.btn-danger.shownext Show Next
+      .btn.btn-block.btn-default  
+        .textbtn
+          | Like it     
+        .boxcoracao
+          span.coracao
 
 javascript:
   $(document).ready(function(){
